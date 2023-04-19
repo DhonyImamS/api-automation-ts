@@ -1,24 +1,26 @@
+import dotenv from 'dotenv';
 import axios from 'axios';
 import { ILooseData } from '@interface/loose_data';
 import { ClientGTL, AxiosClient } from '@interface/client';
 import { ResponseClientAxios } from '@interface/response';
 import { RequestClientGTL } from '@interface/request';
+dotenv.config();
 
 class ClientAxiosGTL implements ClientGTL {
     private client: AxiosClient;
-    private requestData: RequestClientGTL;
+    private defaultConfig: RequestClientGTL;
 
     constructor(config: RequestClientGTL) {
-        this.requestData = config;
-        this.client = axios.create(this.requestData);
+        this.defaultConfig = config;
+        this.client = axios.create(this.defaultConfig);
     }
 
-    async get(url: string): Promise<ResponseClientAxios> {
-        return this.client.get(url, this.requestData);
+    async get(url: string, config: RequestClientGTL): Promise<ResponseClientAxios> {
+        return this.client.get(url, config);
     }
 
-    async post(url: string, body: ILooseData): Promise<ResponseClientAxios> {
-        return this.client.post(url, body, this.requestData);
+    async post(url: string, body: ILooseData, config?: RequestClientGTL): Promise<ResponseClientAxios> {
+        return this.client.post(url, body, config);
     }
 }
 

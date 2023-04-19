@@ -4,7 +4,7 @@
   "description": "typescript api automation project",
   "main": "index.js",
   "scripts": {
-    "test": "jest ./tests/**/*.test.ts"
+    "test": "jest"
   },
   "author": "DhonyImamS",
   "license": "UNLICENSED",
