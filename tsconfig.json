@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "rootDir": "./src",
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "paths": {
+      "@api/*": ["api/*"],
+      "@interface/*": ["interface/*"],
+      "@data/*": ["data/*"],
+      "@client/*": ["client/*"],
+      "@utils/*": ["utils/*"]
+    },
+    "types": ["node", "jest"],
+    "declaration": true,
+    "outDir": "./lib",
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["node_modules"]
+}
