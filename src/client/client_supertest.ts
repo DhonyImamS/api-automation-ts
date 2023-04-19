@@ -1,34 +1,27 @@
-// import { ILooseData } from '@interface/loose_data';
-// import { IRequestInteface } from '@interface/request';
+import supertest from 'supertest';
+import supertestTransformer from '@transformer/supertest_transformer';
+import { ILooseData } from '@interface/loose_data';
+import { ClientGTL, SuperTestClient } from '@interface/client';
+import { ResponseClientSupertest } from '@interface/response';
+import { RequestClientGTL } from '@interface/request';
 
-// class HttpSupertest implements IRequestInteface {
-//     get(): Promise<ILooseData> {
-        
-//     }
+class ClientSupertestGTL implements ClientGTL {
+    private client: SuperTestClient;
+    private requestData: RequestClientGTL;
 
-//     post(data: ILooseData): Promise<ILooseData> {
-        
-//     }
-// }
+    constructor(config: RequestClientGTL) {
+        this.requestData = config;
+        this.client = supertest.agent(this.requestData.baseURL);
+    }
 
-// export default HttpSupertest
+    async get(url: string): Promise<ResponseClientSupertest> {
+        return supertestTransformer(this.client.get(url), this.requestData);
+    }
 
+    async post(url: string, body: ILooseData): Promise<ResponseClientSupertest> {
+        this.requestData.data = body;
+        return supertestTransformer(this.client.get(url), this.requestData);
+    }
+}
 
-// import * as httpLib from 'supertest';
-// import { RequestCall } from '../interface/request.interface';
-
-// export class RequestAPI {
-//     private client: httpLib.SuperAgentTest;
-//     private baseURL: string;
-//     private apiVersion: string;
-
-//     constructor(requestParam?: RequestCall) {
-//         this.baseURL = requestParam?.baseURL ? requestParam.baseURL : 'https://api-dev.altolelang.co.id';
-//         this.apiVersion = requestParam?.apiVersion ? requestParam.apiVersion : '/v1';
-//         this.client = httpLib.agent(`${this.baseURL}${this.apiVersion}`);
-//     }
-
-//     protected clientAPI(): httpLib.SuperAgentTest{
-//         return this.client;
-//     }
-// };
+export default ClientSupertestGTL;

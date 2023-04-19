@@ -10,6 +10,7 @@
       "@interface/*": ["interface/*"],
       "@data/*": ["data/*"],
       "@client/*": ["client/*"],
+      "@transformer/*": ["transformer/*"],
       "@utils/*": ["utils/*"]
     },
     "types": ["node", "jest"],
