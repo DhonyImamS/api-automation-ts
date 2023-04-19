@@ -10,5 +10,12 @@ module.exports = {
 	moduleNameMapper: pathsToModuleNameMapper(
 		compilerOptions.paths /*, { prefix: '<rootDir>/' } */,
 	),
-  testRegex: 'tests/.*\.test\.ts$'
+  testRegex: 'tests/.*\.test\.ts$',
+  reporters: [
+    ['jest-html-reporters', {
+      publicPath: './report',
+      filename: 'report.html',
+      openReport: true,
+    }]
+  ]
 };

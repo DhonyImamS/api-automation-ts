@@ -11,7 +11,7 @@ class ClientAPIGTL implements ClientGTL {
     private clientAPI: ClientAxiosGTL | ClientSupertestGTL;
     private defaultConfig: RequestClientGTL;
 
-    constructor(options: 'AXIOS' | 'SUPERTEST') {
+    constructor(options: 'AXIOS' | 'SUPERTEST' = 'AXIOS') {
         this.defaultConfig = { baseURL: process.env.BASE_URL };
 
         if (options === 'AXIOS') { 
@@ -47,4 +47,4 @@ class ClientAPIGTL implements ClientGTL {
     }
 }
 
-export default new ClientAPIGTL('AXIOS');
+export default ClientAPIGTL;
