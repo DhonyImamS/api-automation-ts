@@ -8,11 +8,10 @@ dhony imam saputra
 ## Manual Installation
 
 If you would still prefer to do the installation manually, follow these steps:
-```
 
 Install the dependencies:
 
-```bash
+```
 npm install
 ```
 
@@ -51,7 +50,7 @@ tests\
 
 ## Reporter
 
-This Framework integrated with jest-html-reporter 
+This Framework integrated with jest-html-reporter - https://github.com/Hazyzh/jest-html-reporters
 
 ## Improvement
 
