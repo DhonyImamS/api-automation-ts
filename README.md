@@ -1,4 +1,4 @@
-# Automation API Typescript with Jest
+# Automation API Typescript combining ( Supertest & Axios ) together with Jest
 
 Boilerplate for automation api that implement adapter pattern using typescript with supertest + axios and jest as runner
 
