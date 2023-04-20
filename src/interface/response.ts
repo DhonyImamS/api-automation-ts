@@ -1,13 +1,16 @@
 import { Test } from 'supertest';
 import { ILooseData } from '@interface/loose_data';
 
-export interface ResponseClientSupertest extends ILooseData, Test{};
-
-export interface ResponseClientAxios {
-    data: ILooseData;
+export interface ResponseClientGTL {
+    data?: ILooseData;
     status: number;
-    statusText: string;
     headers: ILooseData;
+}
+
+export interface ResponseClientSupertest extends Test, ResponseClientGTL{};
+
+export interface ResponseClientAxios extends ResponseClientGTL{
+    statusText: string;
     config: ILooseData;
     request: ILooseData;
 }

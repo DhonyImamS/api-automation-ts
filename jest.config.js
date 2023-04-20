@@ -12,9 +12,11 @@ module.exports = {
 	),
   testRegex: 'tests/.*\.test\.ts$',
   reporters: [
+    'default',
     ['jest-html-reporters', {
       publicPath: './report',
       filename: 'report.html',
+      darkTheme: true,
       openReport: true,
     }]
   ]

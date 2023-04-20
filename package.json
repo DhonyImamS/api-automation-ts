@@ -4,7 +4,7 @@
   "description": "typescript api automation project",
   "main": "index.js",
   "scripts": {
-    "test": "jest --maxWorkers 2"
+    "test": "jest --maxWorkers 1"
   },
   "author": "DhonyImamS",
   "license": "UNLICENSED",

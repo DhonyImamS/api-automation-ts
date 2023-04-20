@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker';
+import RandomizerGTL from '@utils/randomizer';
 
 export type OrderPayload = {
     order_id?: string;
@@ -9,8 +9,8 @@ export type OrderPayload = {
 };
 
 export const orderData: OrderPayload = {
-    "order_id": faker.datatype.uuid(),
-    "order_description": faker.commerce.productDescription(),
+    "order_id": RandomizerGTL.uuid(),
+    "order_description": RandomizerGTL.descriptor(),
     "order_status":"New",
     "last_updated_timestamp": new Date().getTime(),
     "special_order":false
